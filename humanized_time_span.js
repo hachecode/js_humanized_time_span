@@ -22,6 +22,9 @@
 
 
 function humanized_time_span(date, ref_date, date_formats, time_units) {
+  
+  date = date.replace(/(\+\S+) (.*)/, '$2 $1'); // Internet Explorer date bugfix
+  
   //Date Formats must be be ordered smallest -> largest and must end in a format with ceiling of null
   date_formats = date_formats || {
     past: [
